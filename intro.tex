@@ -7,6 +7,84 @@ engineering, and create an application second.
 
 The primary inspiration behind Alpha was the Apollo Space Program initiated
 under the Kennedy Administration. Not only did the NASA Manned Spacecraft Center
-team have time pressure, the 
+team have time pressure, the nature of the program required an intense testing
+protocol, to ensure the safety and security of the astronauts. This required a
+high level of communication, requiring contractors and subcontractors to test to
+the specific guidelines laid out by the many engineers and boards assembled at
+NASA.
 
+This pressure found in the Apollo program is reflected in how Alpha's design and
+mission is guided. Before any of the software was designed, principles guiding
+design were created. As well, each component, when fully redesigned or otherwise
+changed in an interface-breaking way, will be designated as a new "model" or
+"mark" of the component. As an example, the first version of the Draw component
+is called "Draw: Mark I."
+
+\section{Principles}
+
+To achieve a high quality final product, principles must be laid out to guide
+the creation of both hardware software. These principles borrow a lot from the
+hardware design principles during the Apollo space program, as written in NASA
+SP287.
+
+\begin{enumerate}
+    \item Build off of established software.
+    \item Minimize interfaces between components.
+    \item Make each component reusable.
+    \item Small steps go a long way.
+    \item Use as much experience as possible from each step.
+    \item Make each component reliable.
+\end{enumerate}
+
+Using established software ensures reliability and, in some cases, performance
+of a component. This allows for an increased focus on the more difficult and
+less tedious portions of software design, which is integral for a team on a time
+crunch or a team without sizable manpower or wherewithal. Established software
+is also easy to come by in the form of free, open-source software.
+
+Minimization of interfaces and making components reusable go hand in hand,
+especially in software. By minimizing the interfaces between components, it is
+inherently easier to pull a component out of it's codebase and use it inside of
+another codebase. Another part of this is ensuring that each component has
+isolated build-system files. As in each build-system is separated and can build
+freestanding without needing to be inside the Alpha codebase.
+
+\section{Mission Statement}
+
+The purpose of the Alpha program is to simulate and display a possible rocket
+launch from Earth to Mars. The required software to achieve this are as follows:
+
+\begin{enumerate}
+    \item \label{itm:intro/n_body} A $n$-body simulation of the solar system.
+    \item \label{itm:intro/trajectory} Method to calculate the trajectory required to reach Mars by rocket.
+    \item \label{itm:intro/rocket} Simulation of rocket thrust and the subsequent decrease of mass.
+    \item \label{itm:intro/window} Method to open and manage the window and drawing context.
+    \item \label{itm:intro/renderer} Renderer of the $n$-body simulation.
+\end{enumerate}
+
+For Item \ref{itm:intro/n_body}, to maximize the re-usability of this component
+in future projects, this piece will be it's own component, codenamed $n$-body.
+In the source code of Alpha, this component can be found under the
+\texttt{nbody} folders or repositories.
+
+For Items \ref{itm:intro/trajectory} and \ref{itm:intro/rocket}, as these are
+closely related, these two pieces will be combined into their own component,
+codenamed Rocket. In the source code of Alpha, this component can be found under
+the \texttt{rocket} folders or repositories.
+
+For Item \ref{itm:intro/window}, to maximize the re-usability of this component
+in future projects, will be it's own component, codenamed Draw. In the source
+code of Alpha, this component can be found under the \texttt{draw} folders or
+repositories.
+
+For the final Item \ref{itm:intro/renderer}, this piece is closely related to
+however not fully required for the $n$-body simulation. As a result, it will
+need to be a separate component to ensure that a dependency on Draw for $n$-body
+is not required. This component will be called the $n$-body Renderer. In the
+source code of Alpha, this component can be found under the
+\texttt{nbodyrenderer} folders or repositories.
+
+A majority of these components require a substantial amount of linear algebra.
+To build off of established software and maximize reliability of all components,
+glm will be used as a dependency for all of the components listed.
 

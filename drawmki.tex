@@ -1,2 +1,18 @@
 
+To facilitate the management of the window and drawing context, Draw: Mark I was
+the first iteration of the Draw component.
 
+\section{Purpose}
+
+The Draw module has to achieve and manage several different tasks.
+
+\begin{enumerate}
+    \item Window creation and deletion.
+    \item OpenGL context creation and deletion.
+    \item Rendering objects.
+    \item Main window interaction loop.
+\end{enumerate}
+
+To achieve window creation and deletion, GLFW is used. This ensures reliability
+as GLFW is a well-tested and established library for window and context
+creation. To manage the context, a generated version of glad is used.
