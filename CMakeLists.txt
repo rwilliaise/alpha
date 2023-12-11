@@ -6,4 +6,5 @@ project(alpha)
 
 add_subdirectory(drawmki)
 
+add_subdirectory(src)
 

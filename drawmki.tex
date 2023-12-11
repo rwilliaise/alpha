@@ -16,3 +16,29 @@ The Draw module has to achieve and manage several different tasks.
 To achieve window creation and deletion, GLFW is used. This ensures reliability
 as GLFW is a well-tested and established library for window and context
 creation. To manage the context, a generated version of glad is used.
+
+\section{Usage}
+
+The primary arbiter to \texttt{drawmki} is the \texttt{drawmki::window} class.
+This handles the window creation as well as GL context management.
+
+\section{Tests}
+
+To ensure that rendering is fully reliable and in working order, a multitude of
+tests were created. These can be seen in Figure \ref{fig:drawmki/tests}.
+
+\begin{figure}[h]
+    \centering
+    \bgroup
+    \def\arraystretch{1.5}
+    \begin{tabular}{| l | l | p{.5\textwidth} |}
+        \hline
+        & Dependencies & Purpose \\ \hline
+        \texttt{window00} & \texttt{drawmki} & To demonstrate window creation
+        and main window loop. \\ \hline
+    \end{tabular}
+    \egroup
+    \caption{Draw: Mark I tests and purposes}
+    \label{fig:drawmki/tests}
+\end{figure}
+

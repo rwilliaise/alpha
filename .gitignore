@@ -2,3 +2,8 @@ build*
 
 # ccls, clangd
 .cache
+
+# tectonic
+*.aux
+*.log
+*.gz

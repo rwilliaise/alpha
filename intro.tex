@@ -54,12 +54,21 @@ freestanding without needing to be inside the Alpha codebase.
 The purpose of the Alpha program is to simulate and display a possible rocket
 launch from Earth to Mars. The required software to achieve this are as follows:
 
-\begin{enumerate}
+\begin{enumerate} 
+
     \item \label{itm:intro/n_body} A $n$-body simulation of the solar system.
-    \item \label{itm:intro/trajectory} Method to calculate the trajectory required to reach Mars by rocket.
-    \item \label{itm:intro/rocket} Simulation of rocket thrust and the subsequent decrease of mass.
-    \item \label{itm:intro/window} Method to open and manage the window and drawing context.
+
+    \item \label{itm:intro/trajectory} Method to calculate the trajectory
+        required to reach Mars by rocket.
+
+    \item \label{itm:intro/rocket} Simulation of rocket thrust and the
+        subsequent decrease of mass.
+
+    \item \label{itm:intro/window} Method to open and manage the window and
+        drawing context.
+
     \item \label{itm:intro/renderer} Renderer of the $n$-body simulation.
+
 \end{enumerate}
 
 For Item \ref{itm:intro/n_body}, to maximize the re-usability of this component
